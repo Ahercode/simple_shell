@@ -1,30 +1,27 @@
 #include "shell.h"
 
 /**
- * _built-in_env - Get the value of an env variable
- *
- * @env: Env variable's name
- *
- * Return: The pointer to the value of the env varaible asked, NULL else
- */
-char *_getenv(const char *env)
+* print_env - Print the env varaible
+*
+* Return: 0 (succes)
+*/
+int print_env(void)
 {
-	int i, s;
+	int i;
 
-	for (i = 0; built-in[i]; i++)
+	if (array_command[1] != NULL)
 	{
-		for (j = 0; built-in[i][s] != '='; s++)
-		{
-			if (built-in[i][s] != env[s])
-				break;
-		}
-		if (built-in[i][s] == '=')
-			break;
+		write(STDERR_FILENO, "Error syntaxe : env\n", 20);
+		return (0);
 	}
-	if (built-in[i] == NULL)
-		return (NULL);
-	for (s = 0; built-in[i][s] != '='; s++)
-		;
-	s++;
-	return ((*(built-in + i) + s));
+
+	for (i = 0; new_env[i]; i++)
+	{
+		if (new_env[i][0] != '\0')
+		{
+			write(STDOUT_FILENO, new_env[i], _strlen(new_env[i]));
+			write(STDOUT_FILENO, "\n", 1);
+		}
+	}
+	return (0);
 }
