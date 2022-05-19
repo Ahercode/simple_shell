@@ -46,7 +46,7 @@ typedef struct built_in
 /* Variable global */
 
 
-char **_built-in_env;
+char **new_env;
 path *path_head;
 char **array_command;
 char *user_input;
@@ -58,7 +58,7 @@ int exit_var;
 
 /* ENV COMMAND */
 void copy_env(char **env);
-char *_built-in_env(const char *env);
+char *_getenv(const char *env);
 int print_env(void);
 int _setenv(void);
 int _setenv_exist(char *name);
