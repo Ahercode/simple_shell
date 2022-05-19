@@ -1,0 +1,5 @@
+# Configuration file
+
+SHELL="./main"
+SH="/bin/sh"
+
